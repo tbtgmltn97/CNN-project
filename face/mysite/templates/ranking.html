@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>결과 목록</title>
+</head>
+<body>
+    <h1>결과 목록</h1>
+    <ul>
+        {% for result in results %}
+            <li>{{ result.confidence }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

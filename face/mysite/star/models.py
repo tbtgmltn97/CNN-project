@@ -47,8 +47,16 @@ class ImageClassifier:
         # 클래스 레이블을 반환하는 로직을 구현해야 합니다.
         # 예: 클래스 레이블이 저장된 딕셔너리나 데이터베이스에서 조회하여 반환하는 코드를 작성합니다.
         pass
+#class Post(models.Model):
+#    title = models.CharField(max_length=100)
+#    content = models.TextField()
+#    def __str__(self):
+#        return self.title
+
+
 class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
+    confidence = models.FloatField()
+    result = models.CharField(max_length=100)
+
     def __str__(self):
-        return self.title
+        return self.result

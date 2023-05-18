@@ -4,7 +4,7 @@ from .models import Post
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ImageUploadForm
-from .models import ImageClassifier
+from .models import ImageClassifier,Post
 import numpy as np
 import glob
 # Create your views here.
@@ -23,7 +23,12 @@ def classify_image(request):
             classifier = ImageClassifier(model_path)
             # 이미지 분류
             result = classifier.classify_image(image)
+            Post.objects.create(confidence=result['confidence'], result=result['class_label'])
             return render(request, 'result.html', {'result': result})
     else:
         form = ImageUploadForm()
     return render(request, 'index.html', {'form': form})
+
+def rank(request):
+    results = Post.objects.all()
+    return render(request, 'ranking.html', {'results': results})
