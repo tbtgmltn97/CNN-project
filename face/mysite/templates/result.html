@@ -45,14 +45,6 @@
     <p>예측 결과: 대박 미친 {{ result.class_label }} 입니다...</p>
     <img class="profile-image" src="{% static result.class_label|add:'.jpg' %}">
 
-    <p><a href="http://127.0.0.1:8000/star/classify/" class="return-button">돌아가기</a></p>
+    <p><a href="{% url 'star:classify_image' %}" class="return-button">돌아가기</a></p>
 </body>
-{% comment %} 
-<body>
-	<h1>분류 결과</h1>
-	<p>예측 결과: {{ result }}</p>
-	<img class="profile-image" src="{% static result.class_label|add:'.jpg' %}">
 
-	<p><a href="http://127.0.0.1:8000/star/classify/">돌아가기</a></p>
-</body>
-</html> {% endcomment %}

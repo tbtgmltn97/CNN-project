@@ -1,0 +1,90 @@
+<!-- sub_menu_1.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>아이템 선정</title>
+    <!-- 필요한 스타일시트 및 스크립트 태그를 추가하세요 -->
+    <style>
+         body {
+            background-image: url('/static/assets/img/bg-masthead.jpg');
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+        }
+        .center-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+        }
+        .container h1 {
+            font-size: 48px;
+            /* 화면 전체 높이에 맞게 조절 */
+        }
+        .header-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .split-container {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid black;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .split-container::before {
+            content: "";
+            width: 1px;
+            background-color: black; /* 세로줄 색상 */
+            position: absolute; /* 절대적 위치 설정 */
+            top: 240px; /* 세로줄이 가로줄 위에 위치하도록 설정 */
+            bottom: -400px; /* 세로줄이 가장 아래까지 표시되도록 설정 */
+            left: 50%; /* 가운데로 위치하도록 설정 */
+            transform: translateY(-50%); /* 세로줄을 정중앙에 위치시키도록 설정 */
+            margin-top: 50px; /* 상단 여백 조정 */
+        }
+        .split-container .col {
+            flex: 1;
+            padding: 20px;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+    <div class="header-container">
+        <h1 >프로젝트 Face</h1>
+        <h3 class="mb-5"><em>딥러닝을 이용하여 학습시킨 모델을 활용하여<br>닮은 유명인을 찾아주는 홈페이지 만들기</em></h3>
+    </div>
+    <div class="split-container">
+        <div class="col" style="background-color: white;">
+            <h2 style="text-align: center;">프로젝트명칭: Face</h2>
+            <p>개발 인원: 6명</p>
+            <p>개발 기간: 2023.05.12 - 2023.05.18</p>
+            <p>간단한 소개: 딥러닝을 이용하여 학습시킨 모델을 홈페이지에 적용하여 사용자들이 사진을 올리면 닮은 연예인을<br>        보여주도록 함</p>
+            <p>개발 언어: python</p>
+            <p>형상 관리 틀: GitHub</p>
+            <p>데이터베이스: SQLite</p>
+            
+        </div>
+            <!-- 왼쪽 내용 -->
+        <div class="col">
+            <h2 style="text-align: center;">DB 설계</h2>
+            <img src="/static/DB.jpg" alt="DB 설계 이미지" width="700">
+        </div>
+    </div>
+</body>
+
+</html>
+
