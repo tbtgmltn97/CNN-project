@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import json
+
+
+
+with open('secrets.json') as f:
+   secrets = json.loads(f.read())
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l*j+h#iq2s2e(729y)rr$4wamh^nxfne_ez=9py2qtm*9211v$'
-
+SECRET_KEY = secrets['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.35.235.162']
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -78,12 +84,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'team3',
-        'USER': 'encore',
-        'PASSWORD': '12345678',
-        'HOST': '3.35.235.162',
-        'PORT': '3306'
+        'ENGINE': secrets['DATABASE']['default']['ENGINE'],
+        'NAME': secrets['DATABASE']['default']['NAME'],
+        'USER': secrets['DATABASE']['default']['USER'],
+        'PASSWORD': secrets['DATABASE']['default']['PASSWORD'],
+        'HOST': secrets['DATABASE']['default']['HOST'],
+        'PORT': secrets['DATABASE']['default']['PORT'],
     }
 }
 
